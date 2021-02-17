@@ -2,8 +2,22 @@
   padding: 0;
   margin: 0;
 }
-header a{
-  padding: 10px;
+header {
+  
   list-style: none;
-  display: flex;
+}
+.collapsing a{
+  color: white;
+}
+
+.collapse a{
+  color: white;
+}
+#navbarTogglerDemo01{
+  width: 300px;
+  /* transition:right 0.2s ease,left 0.2s ease;
+  animation-timing-function: ease; */
+}
+.navbar-toggler{
+  transition:right 0.2s ease,left 0.2s ease;
 }
