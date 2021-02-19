@@ -2,18 +2,33 @@
   padding: 0;
   margin: 0;
 }
-header {
+header{
   position: fixed;
   width: 100%;
   list-style: none;
   top: 0;
   z-index: 1;
 }
+header nav{
+  height: 4rem;
+  flex-flow: row nowrap;
+}
+.row {
+  --bs-gutter-x: 0;
+}
+header .navbar-brand{
+  font-size: 14px;
+  text-transform: uppercase;
+}
+header .row .navbar-brand{
+  font-size: 14px;
+  text-transform: uppercase;
+}
 .main{
   position: fixed;
   z-index: 1;
   left: -300px;
-  top: 56px;
+  top: 4rem;
   height: 100%;
   margin: 0;
   width: 300px;
@@ -43,8 +58,4 @@ header {
   margin-right: 0;
   height: 1000px;
   transition: all 1s;
-}
-#page .row {
-  --bs-gutter-x: 0;
-
 }

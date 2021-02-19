@@ -1,3 +1,10 @@
+<?php
+require 'dbconnection/connection.php';
+include 'php/classAlumno.php';
+$qalumno = pg_query($connection, 'SELECT * FROM "Alumno" WHERE "Codigo_alum" = ' . "'2017000000'");
+$row = pg_fetch_row($qalumno);
+$alumno = new Alumno($row[0], $row[3], $row[1], $row[4], $row[2]);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,8 +43,10 @@
               </a>
             </div>
             <div class="col">
-              <a class="navbar-brand mx-2 my-auto" href="#">
-                <span>NOMBRE</span>
+              <a class="navbar-brand mx-2 align-self-center" href="#">
+                <?php
+                echo $alumno->getNombres() . " " . $alumno->getApellidos();
+                ?>
               </a>
             </div>
             <div class="col">
@@ -47,6 +56,7 @@
         </div>
       </nav>
     </header>
+    N°
     
     <div class="main" id="main" >
       <a class="" href="http://">
@@ -85,7 +95,11 @@
                   <img src="image/incognita.jpg" class="rounded-circle" width="200" height="200" >
                 </div>
                 <div class="p-2 bd-highlight align-self-center">
-                  <h3 class="card-title">NOMBRE y APELLIDO</h3>
+                  <h3 class="card-title">
+                  <?php
+                  echo $alumno->getNombres() . " " . $alumno->getApellidos();
+                  ?>
+                  </h3>
                 </div>
                 <div class="p-2 bd-highlight align-self-center">
                   <a href="#" class="btn btn-primary btn-lg">
@@ -105,10 +119,18 @@
           </div>
         </div>
       </div><!-- Page web, where is the page content -->
-
-      <section>
-        <h1>Hola mundo!</h1>
-      </section>
+        <div class="row ">
+          <div class="col-8 ">
+            <div class="card border-top border-3 border-info ">
+              Mayor
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card border-top border-3 border-info ">
+              Mayors
+            </div>
+          </div>
+        </div>
     </div>
     <footer>
     </footer>
